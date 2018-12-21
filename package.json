@@ -1,0 +1,22 @@
+{
+  "name": "framerate-history",
+  "version": "1.0.0",
+  "description": "ES6 class for tracking framerate over time.",
+  "main": "FrameRate.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "doc": "jsdoc2md FrameRate.js > README.md"
+  },
+  "repository": {
+    "type" : "git",
+    "url" : "https://github.com/DarrenPaulWright/framerate-history.git"
+  },
+  "keywords": [
+    "framerate"
+  ],
+  "author": "Darren Paul Wright <Darren@DarrenPaulWright.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "jsdoc-to-markdown": "^4.0.1"
+  }
+}
