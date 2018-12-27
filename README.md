@@ -1,7 +1,7 @@
 <a name="module_FrameRate"></a>
 
 ## FrameRate
-An ES6 class for tracking frame rate for a given period of time.## Installation```npm install framerate;```## Usage
+An ES6 class for tracking frame rate for a given period of time.## Installation```npm install framerate-history;```## Usage
 
 
 | Param | Type |
