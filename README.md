@@ -1,9 +1,8 @@
-<a name="module_FrameRate"></a>
-
-## FrameRate
+# framerate-history
 [![npm][npm]][npm-url]
 [![deps][deps]][deps-url]
 [![size][size]][size-url]
+
 An ES6 class for tracking frame rate for a given period of time.
 
 ## Installation
@@ -11,17 +10,10 @@ An ES6 class for tracking frame rate for a given period of time.
 npm install framerate-history;
 ```
 
-## Usage
-```
-import FrameRate from 'framerate-history';
-```
+<a name="module_FrameRate"></a>
 
-[npm]: https://img.shields.io/npm/v/type-enforcer.svg
-[npm-url]: https://npmjs.com/package/type-enforcer
-[deps]: https://david-dm.org/darrenpaulwright/type-enforcer.svg
-[deps-url]: https://david-dm.org/darrenpaulwright/type-enforcer
-[size]: https://packagephobia.now.sh/badge?p=type-enforcer
-[size-url]: https://packagephobia.now.sh/result?p=type-enforcer
+## FrameRate
+### Usage```import FrameRate from 'framerate-history';```
 
 
 | Param | Type |
@@ -93,6 +85,14 @@ Defines the duration of tracked history in seconds.
 | --- | --- |
 | [value] | <code>Number</code> | 
 
+
 ## License
 
 [MIT](./LICENSE.md)
+
+[npm]: https://img.shields.io/npm/v/framerate-history.svg
+[npm-url]: https://npmjs.com/package/framerate-history
+[deps]: https://david-dm.org/darrenpaulwright/framerate-history.svg
+[deps-url]: https://david-dm.org/darrenpaulwright/framerate-history
+[size]: https://packagephobia.now.sh/badge?p=framerate-history
+[size-url]: https://packagephobia.now.sh/result?p=framerate-history

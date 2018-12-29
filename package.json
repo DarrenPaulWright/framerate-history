@@ -8,7 +8,7 @@
     "patch": "npm version patch -m \"Increment patch version to %s\"",
     "minor": "npm version minor -m \"Increment minor version to %s\"",
     "major": "npm version major -m \"Increment major version to %s\"",
-    "docs": "jsdoc2md FrameRate.js > README.md"
+    "docs": "jsdoc2md FrameRate.js > README.md --template docs.hbs"
   },
   "repository": {
     "type": "git",

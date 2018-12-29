@@ -9,27 +9,10 @@ const SAMPLE_INTERVAL = Symbol();
 const ON_SAMPLE = Symbol();
 
 /**
- * [![npm][npm]][npm-url]
- * [![deps][deps]][deps-url]
- * [![size][size]][size-url]
- * An ES6 class for tracking frame rate for a given period of time.
- *
- * ## Installation
- * ```
- * npm install framerate-history;
- * ```
- *
- * ## Usage
+ * ### Usage
  * ```
  * import FrameRate from 'framerate-history';
  * ```
- *
- * [npm]: https://img.shields.io/npm/v/type-enforcer.svg
- * [npm-url]: https://npmjs.com/package/type-enforcer
- * [deps]: https://david-dm.org/darrenpaulwright/type-enforcer.svg
- * [deps-url]: https://david-dm.org/darrenpaulwright/type-enforcer
- * [size]: https://packagephobia.now.sh/badge?p=type-enforcer
- * [size-url]: https://packagephobia.now.sh/result?p=type-enforcer
  *
  * @module FrameRate
  *
