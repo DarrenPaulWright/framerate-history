@@ -5,11 +5,14 @@
   "main": "FrameRate.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "doc": "jsdoc2md FrameRate.js > README.md"
+    "patch": "npm version patch -m \"Increment patch version to %s\"",
+    "minor": "npm version minor -m \"Increment minor version to %s\"",
+    "major": "npm version major -m \"Increment major version to %s\"",
+    "docs": "jsdoc2md FrameRate.js > README.md"
   },
   "repository": {
-    "type" : "git",
-    "url" : "https://github.com/DarrenPaulWright/framerate-history.git"
+    "type": "git",
+    "url": "https://github.com/DarrenPaulWright/framerate-history.git"
   },
   "keywords": [
     "framerate"
