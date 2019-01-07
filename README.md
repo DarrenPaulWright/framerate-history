@@ -16,13 +16,13 @@ npm install framerate-history;
 ### Usage```import FrameRate from 'framerate-history';```
 
 
-| Param | Type |
-| --- | --- |
-| settings | <code>Object</code> | 
-| settings.onSample | <code>function</code> | 
-| settings.filterStrength | <code>Number</code> | 
-| settings.historyDuration | <code>Number</code> | 
-| settings.sampleRate | <code>Number</code> | 
+| Param | Type | Default |
+| --- | --- | --- |
+| settings | <code>Object</code> |  | 
+| [settings.onSample] | <code>function</code> |  | 
+| [settings.filterStrength] | <code>Number</code> | <code>5</code> | 
+| [settings.historyDuration] | <code>Number</code> | <code>30</code> | 
+| [settings.sampleRate] | <code>Number</code> | <code>10</code> | 
 
 
 * [FrameRate](#module_FrameRate)
@@ -44,7 +44,7 @@ npm install framerate-history;
 <a name="module_FrameRate+filterStrength"></a>
 
 ### frameRate.filterStrength([value]) ⇒ <code>frameRate</code> \| <code>Number</code>
-Sets a filter on the frame rate calculation. Setting to 1 will effectively turn off the filter, the higher the number the more smooth the curve over time. See this stackoverflow question for details: https://stackoverflow.com/questions/4787431/check-fps-in-js
+Sets a filter on the frame rate calculation. Setting to 1 will effectively turn off the filter, the higher thenumber the more smooth the curve over time. See this stackoverflow question for details:https://stackoverflow.com/questions/4787431/check-fps-in-js
 
 **Kind**: instance method of [<code>FrameRate</code>](#module_FrameRate)  
 
@@ -55,13 +55,13 @@ Sets a filter on the frame rate calculation. Setting to 1 will effectively turn 
 <a name="module_FrameRate+sampleRate"></a>
 
 ### frameRate.sampleRate([value]) ⇒ <code>frameRate</code> \| <code>Number</code>
-The rate to take samples (samples per second). Setting to 0 will clear the interval.
+The rate to take samples. Setting to 0 will clear the interval. If the interval is prevented from executing at the desired rate, the history will get filled in with the current frame rate in an attempt to keep the history as accurate as possible.
 
 **Kind**: instance method of [<code>FrameRate</code>](#module_FrameRate)  
 
-| Param | Type |
-| --- | --- |
-| [value] | <code>Number</code> | 
+| Param | Type | Description |
+| --- | --- | --- |
+| [value] | <code>Number</code> | Samples per second |
 
 <a name="module_FrameRate+onSample"></a>
 
@@ -81,9 +81,9 @@ Defines the duration of tracked history in seconds.
 
 **Kind**: instance method of [<code>FrameRate</code>](#module_FrameRate)  
 
-| Param | Type |
-| --- | --- |
-| [value] | <code>Number</code> | 
+| Param | Type | Description |
+| --- | --- | --- |
+| [value] | <code>Number</code> | Seconds |
 
 
 ## License

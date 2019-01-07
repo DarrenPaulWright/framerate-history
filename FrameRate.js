@@ -17,10 +17,10 @@ const ON_SAMPLE = Symbol();
  * @module FrameRate
  *
  * @param {Object} settings
- * @param {Function} settings.onSample
- * @param {Number} settings.filterStrength
- * @param {Number} settings.historyDuration
- * @param {Number} settings.sampleRate
+ * @param {Function} [settings.onSample]
+ * @param {Number} [settings.filterStrength=5]
+ * @param {Number} [settings.historyDuration=30]
+ * @param {Number} [settings.sampleRate=10]
  */
 export default class FrameRate {
 	constructor(settings) {
@@ -86,12 +86,12 @@ export default class FrameRate {
 	}
 
 	/**
-	 * The rate to take samples (samples per second). Setting to 0 will clear the interval.
+	 * The rate to take samples. Setting to 0 will clear the interval. If the interval is prevented from executing at the desired rate, the history will get filled in with the current frame rate in an attempt to keep the history as accurate as possible.
 	 *
 	 * @method sampleRate
 	 * @instance
 	 *
-	 * @param {Number} [value]
+	 * @param {Number} [value] - Samples per second
 	 *
 	 * @returns {frameRate|Number}
 	 */
@@ -158,7 +158,7 @@ export default class FrameRate {
 	 * @method historyDuration
 	 * @instance
 	 *
-	 * @param {Number} [value]
+	 * @param {Number} [value] - Seconds
 	 *
 	 * @returns {frameRate|Number}
 	 */
