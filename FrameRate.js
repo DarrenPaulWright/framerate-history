@@ -95,22 +95,34 @@ export default class FrameRate {
 	 */
 	sampleRate(value) {
 		const self = this;
+		let lastSample;
+		let now;
+		let samples;
 
 		if (value !== undefined) {
+			const DURATION =  MILLISECONDS_IN_SECOND / value;
 			self[SAMPLE_RATE] = value;
 			self.historyDuration(self.historyDuration());
+			lastSample = performance.now();
 
 			clearInterval(self[SAMPLE_INTERVAL]);
 
 			if (self[SAMPLE_RATE] && self.historyDuration()) {
 				self[SAMPLE_INTERVAL] = setInterval(() => {
-					self[HISTORY].push(self[FPS]);
-					self[HISTORY].shift();
+					now = performance.now();
+					samples = Math.round((now - lastSample) / DURATION);
+
+					while (samples) {
+						self[HISTORY].push(self[FPS]);
+						self[HISTORY].shift();
+						samples--;
+					}
 
 					if (self[ON_SAMPLE]) {
 						self[ON_SAMPLE](self[HISTORY]);
 					}
-				}, MILLISECONDS_IN_SECOND / self[SAMPLE_RATE]);
+					lastSample = now;
+				}, DURATION);
 			}
 
 			return self;
