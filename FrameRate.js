@@ -62,7 +62,9 @@ export default class FrameRate {
 	}
 
 	/**
-	 * Sets a filter on the frame rate calculation. Setting to 1 will effectively turn off the filter, the higher the number the more smooth the curve over time. See this stackoverflow question for details: https://stackoverflow.com/questions/4787431/check-fps-in-js
+	 * Sets a filter on the frame rate calculation. Setting to 1 will effectively turn off the filter, the higher the
+	 * number the more smooth the curve over time. See this stackoverflow question for details:
+	 * https://stackoverflow.com/questions/4787431/check-fps-in-js
 	 *
 	 * @method filterStrength
 	 * @instance
@@ -97,7 +99,6 @@ export default class FrameRate {
 		const self = this;
 		let lastSample;
 		let now;
-		let samples;
 
 		if (value !== undefined) {
 			const DURATION =  MILLISECONDS_IN_SECOND / value;
@@ -110,18 +111,16 @@ export default class FrameRate {
 			if (self[SAMPLE_RATE] && self.historyDuration()) {
 				self[SAMPLE_INTERVAL] = setInterval(() => {
 					now = performance.now();
-					samples = Math.round((now - lastSample) / DURATION);
 
-					while (samples) {
+					while (lastSample + DURATION < now) {
 						self[HISTORY].push(self[FPS]);
 						self[HISTORY].shift();
-						samples--;
+						lastSample += DURATION;
 					}
 
 					if (self[ON_SAMPLE]) {
 						self[ON_SAMPLE](self[HISTORY]);
 					}
-					lastSample = now;
 				}, DURATION);
 			}
 
