@@ -9,18 +9,26 @@ const SAMPLE_INTERVAL = Symbol();
 const ON_SAMPLE = Symbol();
 
 /**
- * ### Usage
  * ```
+ * npm install framerate-history
+ * ```
+ *
+ * @name Installation
+ */
+
+/**
+ * ``` javascript
  * import FrameRate from 'framerate-history';
  * ```
  *
- * @module FrameRate
+ * @category 2
+ * @class FrameRate
  *
- * @param {Object} settings
- * @param {Function} [settings.onSample]
- * @param {Number} [settings.filterStrength=5]
- * @param {Number} [settings.historyDuration=30]
- * @param {Number} [settings.sampleRate=10]
+ * @arg {Object} settings - Applied to the corresponding methods
+ * @arg {Function} [settings.onSample]
+ * @arg {Number} [settings.filterStrength=5]
+ * @arg {Number} [settings.historyDuration=30]
+ * @arg {Number} [settings.sampleRate=10]
  */
 export default class FrameRate {
 	constructor(settings) {
@@ -48,14 +56,26 @@ export default class FrameRate {
 	}
 
 	/**
-	 * @type {number}
+	 * The last recorded FPS
+	 *
+	 * @memberOf FrameRate
+	 * @instance
+	 * @readonly
+	 *
+	 * @returns {number}
 	 */
 	get fps() {
 		return this[FPS];
 	}
 
 	/**
-	 * @type {array}
+	 * The FPS recordings over the history duration
+	 *
+	 * @memberOf FrameRate
+	 * @instance
+	 * @readonly
+	 *
+	 * @returns {array}
 	 */
 	get history() {
 		return this[HISTORY];
@@ -66,10 +86,11 @@ export default class FrameRate {
 	 * number the more smooth the curve over time. See this stackoverflow question for details:
 	 * https://stackoverflow.com/questions/4787431/check-fps-in-js
 	 *
-	 * @method filterStrength
+	 * @default 5
+	 * @memberOf FrameRate
 	 * @instance
 	 *
-	 * @param {Number} [value]
+	 * @arg {Number} [value]
 	 *
 	 * @returns {frameRate|Number}
 	 */
@@ -88,10 +109,11 @@ export default class FrameRate {
 	/**
 	 * The rate to take samples. Setting to 0 will clear the interval. If the interval is prevented from executing at the desired rate, the history will get filled in with the current frame rate in an attempt to keep the history as accurate as possible.
 	 *
-	 * @method sampleRate
+	 * @default 10
+	 * @memberOf FrameRate
 	 * @instance
 	 *
-	 * @param {Number} [value] - Samples per second
+	 * @arg {Number} [value] - Samples per second
 	 *
 	 * @returns {frameRate|Number}
 	 */
@@ -133,10 +155,10 @@ export default class FrameRate {
 	/**
 	 * The callback will get called for every sample taken.
 	 *
-	 * @method onSample
+	 * @memberOf FrameRate
 	 * @instance
 	 *
-	 * @param {Function} [callback]
+	 * @arg {Function} [callback] - The callback is given one param, the FPS history array.
 	 *
 	 * @return {frameRate|Function}
 	 */
@@ -153,12 +175,13 @@ export default class FrameRate {
 	}
 
 	/**
-	 * Defines the duration of tracked history in seconds.
+	 * Defines the duration of tracked history.
 	 *
-	 * @method historyDuration
+	 * @default 30
+	 * @memberOf FrameRate
 	 * @instance
 	 *
-	 * @param {Number} [value] - Seconds
+	 * @arg {Number} [value] - Seconds
 	 *
 	 * @returns {frameRate|Number}
 	 */

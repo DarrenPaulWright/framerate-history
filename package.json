@@ -1,15 +1,42 @@
 {
   "name": "framerate-history",
   "version": "1.0.6",
-  "description": "ES6 class for tracking framerate over time.",
+  "description": "An ES6 class for tracking framerate for a given period of time.",
   "main": "FrameRate.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "patch": "npm version patch -m \"Increment patch version to %s\"",
     "minor": "npm version minor -m \"Increment minor version to %s\"",
     "major": "npm version major -m \"Increment major version to %s\"",
-    "docs": "jsdoc2md FrameRate.js > README.md --template docs.hbs"
+    "docs": "jsdoc2md FrameRate.js > README.md -t docs.hbs --plugin dmd-readable -d 3"
   },
+  "badges": [
+    {
+      "name": "npm",
+      "image": "https://img.shields.io/npm/v/framerate-history.svg",
+      "url": "https://npmjs.com/package/framerate-history"
+    },
+    {
+      "name": "deps",
+      "image": "https://david-dm.org/darrenpaulwright/framerate-history.svg",
+      "url": "https://david-dm.org/darrenpaulwright/framerate-history"
+    },
+    {
+      "name": "size",
+      "image": "https://packagephobia.now.sh/badge?p=framerate-history",
+      "url": "https://packagephobia.now.sh/result?p=framerate-history"
+    },
+    {
+      "name": "vulnerabilities",
+      "image": "https://snyk.io/test/github/DarrenPaulWright/framerate-history/badge.svg?targetFile=package.json",
+      "url": "https://snyk.io/test/github/DarrenPaulWright/framerate-history?targetFile=package.json"
+    },
+    {
+      "name": "license",
+      "image": "https://img.shields.io/github/license/DarrenPaulWright/framerate-history.svg",
+      "url": "https://npmjs.com/package/framerate-history/LICENSE.md"
+    }
+  ],
   "repository": {
     "type": "git",
     "url": "https://github.com/DarrenPaulWright/framerate-history.git"
@@ -20,6 +47,7 @@
   "author": "Darren Paul Wright <Darren@DarrenPaulWright.com>",
   "license": "MIT",
   "devDependencies": {
+    "dmd-readable": "^0.2.1",
     "jsdoc-to-markdown": "^4.0.1"
   }
 }
