@@ -5,9 +5,9 @@
   "main": "FrameRate.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "patch": "npm version patch -m \"Increment patch version to %s\"",
-    "minor": "npm version minor -m \"Increment minor version to %s\"",
-    "major": "npm version major -m \"Increment major version to %s\"",
+    "patch": "npm version patch -m \"Increment patch version to %s\" && npm publish",
+    "minor": "npm version minor -m \"Increment minor version to %s\" && npm publish",
+    "major": "npm version major -m \"Increment major version to %s\" && npm publish",
     "docs": "jsdoc2md FrameRate.js > README.md -t docs.hbs --plugin dmd-readable -d 3"
   },
   "badges": [
@@ -47,7 +47,7 @@
   "author": "Darren Paul Wright <Darren@DarrenPaulWright.com>",
   "license": "MIT",
   "devDependencies": {
-    "dmd-readable": "^0.2.1",
-    "jsdoc-to-markdown": "^4.0.1"
+    "dmd-readable": "^0.2.2",
+    "jsdoc-to-markdown": "^5.0.0"
   }
 }
