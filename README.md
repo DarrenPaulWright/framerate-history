@@ -12,55 +12,57 @@
 <br><a name="Installation"></a>
 
 ### Installation
-> ```> npm install framerate-history> ```
-
+```npm install framerate-history```
 
 <br><a name="FrameRate"></a>
 
 ### FrameRate
+``` javascriptimport FrameRate from 'framerate-history';```
 
 * [FrameRate](#FrameRate)
     * [new FrameRate(settings)](#new_FrameRate_new)
-    * [.fps](#FrameRate+fps) ⇒ <code>number</code>
-    * [.history](#FrameRate+history) ⇒ <code>array</code>
-    * [.filterStrength([value])](#FrameRate+filterStrength) ⇒ <code>frameRate</code> \| <code>Number</code>
-    * [.sampleRate([value])](#FrameRate+sampleRate) ⇒ <code>frameRate</code> \| <code>Number</code>
-    * [.onSample([callback])](#FrameRate+onSample) ⇒ <code>frameRate</code> \| <code>function</code>
-    * [.historyDuration([value])](#FrameRate+historyDuration) ⇒ <code>frameRate</code> \| <code>Number</code>
+    * [.fps](#FrameRate+fps) ⇒ <code>Number</code>
+    * [.history](#FrameRate+history) ⇒ <code>Array</code>
+    * [.filterStrength([value])](#FrameRate+filterStrength) ⇒ <code>Number</code>
+    * [.sampleRate([value])](#FrameRate+sampleRate) ⇒ <code>Number</code>
+    * [.onSample([callback])](#FrameRate+onSample) ⇒ <code>function</code>
+    * [.historyDuration([value])](#FrameRate+historyDuration) ⇒ <code>Number</code>
 
 
 <br><a name="new_FrameRate_new"></a>
 
 #### new FrameRate(settings)
-> ``` javascript> import FrameRate from 'framerate-history';> ```
 
-
-| Param | Type | Default | Description |
-| --- | --- | --- | --- |
-| settings | <code>Object</code> |  | Applied to the corresponding methods |
-| [settings.onSample] | <code>function</code> |  |  |
-| [settings.filterStrength] | <code>Number</code> | <code>5</code> |  |
-| [settings.historyDuration] | <code>Number</code> | <code>30</code> |  |
-| [settings.sampleRate] | <code>Number</code> | <code>10</code> |  |
+| Param | Type | Default |
+| --- | --- | --- |
+| settings | <code>Object</code> |  | 
+| [settings.onSample] | <code>function</code> |  | 
+| [settings.filterStrength] | <code>Number</code> | <code>5</code> | 
+| [settings.historyDuration] | <code>Number</code> | <code>30</code> | 
+| [settings.sampleRate] | <code>Number</code> | <code>10</code> | 
 
 
 <br><a name="FrameRate+fps"></a>
 
-#### frameRate.fps ⇒ <code>number</code>
+#### frameRate.fps ⇒ <code>Number</code>
+`🔒 Read only`
+
 > The last recorded FPS
 
-`Read only`<br>
 
 <br><a name="FrameRate+history"></a>
 
-#### frameRate.history ⇒ <code>array</code>
+#### frameRate.history ⇒ <code>Array</code>
+`🔒 Read only`
+
 > The FPS recordings over the history duration
 
-`Read only`<br>
 
 <br><a name="FrameRate+filterStrength"></a>
 
-#### frameRate.filterStrength([value]) ⇒ <code>frameRate</code> \| <code>Number</code>
+#### frameRate.filterStrength([value]) ⇒ <code>Number</code>
+`🔗 Chainable`
+
 > Sets a filter on the frame rate calculation. Setting to 1 will effectively turn off the filter, the higher the> number the more smooth the curve over time. See this stackoverflow question for details:> https://stackoverflow.com/questions/4787431/check-fps-in-js
 
 **Default**: <code>5</code>  
@@ -72,7 +74,9 @@
 
 <br><a name="FrameRate+sampleRate"></a>
 
-#### frameRate.sampleRate([value]) ⇒ <code>frameRate</code> \| <code>Number</code>
+#### frameRate.sampleRate([value]) ⇒ <code>Number</code>
+`🔗 Chainable`
+
 > The rate to take samples. Setting to 0 will clear the interval. If the interval is prevented from executing at the desired rate, the history will get filled in with the current frame rate in an attempt to keep the history as accurate as possible.
 
 **Default**: <code>10</code>  
@@ -84,7 +88,9 @@
 
 <br><a name="FrameRate+onSample"></a>
 
-#### frameRate.onSample([callback]) ⇒ <code>frameRate</code> \| <code>function</code>
+#### frameRate.onSample([callback]) ⇒ <code>function</code>
+`🔗 Chainable`
+
 > The callback will get called for every sample taken.
 
 
@@ -95,7 +101,9 @@
 
 <br><a name="FrameRate+historyDuration"></a>
 
-#### frameRate.historyDuration([value]) ⇒ <code>frameRate</code> \| <code>Number</code>
+#### frameRate.historyDuration([value]) ⇒ <code>Number</code>
+`🔗 Chainable`
+
 > Defines the duration of tracked history.
 
 **Default**: <code>30</code>  

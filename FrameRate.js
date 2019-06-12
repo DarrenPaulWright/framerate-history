@@ -9,22 +9,24 @@ const SAMPLE_INTERVAL = Symbol();
 const ON_SAMPLE = Symbol();
 
 /**
+ * @name Installation
+ * @summary
+ *
  * ```
  * npm install framerate-history
  * ```
- *
- * @name Installation
  */
 
 /**
+ * @category 2
+ * @class FrameRate
+ * @summary
+ *
  * ``` javascript
  * import FrameRate from 'framerate-history';
  * ```
  *
- * @category 2
- * @class FrameRate
- *
- * @arg {Object} settings - Applied to the corresponding methods
+ * @arg {Object} settings
  * @arg {Function} [settings.onSample]
  * @arg {Number} [settings.filterStrength=5]
  * @arg {Number} [settings.historyDuration=30]
@@ -62,7 +64,7 @@ export default class FrameRate {
 	 * @instance
 	 * @readonly
 	 *
-	 * @returns {number}
+	 * @returns {Number}
 	 */
 	get fps() {
 		return this[FPS];
@@ -75,7 +77,7 @@ export default class FrameRate {
 	 * @instance
 	 * @readonly
 	 *
-	 * @returns {array}
+	 * @returns {Array}
 	 */
 	get history() {
 		return this[HISTORY];
@@ -88,11 +90,12 @@ export default class FrameRate {
 	 *
 	 * @default 5
 	 * @memberOf FrameRate
+	 * @chainable
 	 * @instance
 	 *
 	 * @arg {Number} [value]
 	 *
-	 * @returns {frameRate|Number}
+	 * @returns {Number}
 	 */
 	filterStrength(value) {
 		const self = this;
@@ -111,11 +114,12 @@ export default class FrameRate {
 	 *
 	 * @default 10
 	 * @memberOf FrameRate
+	 * @chainable
 	 * @instance
 	 *
 	 * @arg {Number} [value] - Samples per second
 	 *
-	 * @returns {frameRate|Number}
+	 * @returns {Number}
 	 */
 	sampleRate(value) {
 		const self = this;
@@ -156,11 +160,12 @@ export default class FrameRate {
 	 * The callback will get called for every sample taken.
 	 *
 	 * @memberOf FrameRate
+	 * @chainable
 	 * @instance
 	 *
 	 * @arg {Function} [callback] - The callback is given one param, the FPS history array.
 	 *
-	 * @return {frameRate|Function}
+	 * @returns {Function}
 	 */
 	onSample(callback) {
 		const self = this;
@@ -179,11 +184,12 @@ export default class FrameRate {
 	 *
 	 * @default 30
 	 * @memberOf FrameRate
+	 * @chainable
 	 * @instance
 	 *
 	 * @arg {Number} [value] - Seconds
 	 *
-	 * @returns {frameRate|Number}
+	 * @returns {Number}
 	 */
 	historyDuration(value) {
 		const self = this;
