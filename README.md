@@ -44,24 +44,21 @@
 
 <br><a name="FrameRate+fps"></a>
 
-#### frameRate.fps ⇒ <code>Number</code>
-`🔒 Read only`
+#### frameRate.fps ⇒ <code>Number</code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;_`🔒 Read only`_
 
 > The last recorded FPS
 
 
 <br><a name="FrameRate+history"></a>
 
-#### frameRate.history ⇒ <code>Array</code>
-`🔒 Read only`
+#### frameRate.history ⇒ <code>Array</code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;_`🔒 Read only`_
 
 > The FPS recordings over the history duration
 
 
 <br><a name="FrameRate+filterStrength"></a>
 
-#### frameRate.filterStrength([value]) ⇒ <code>Number</code>
-`🔗 Chainable`
+#### frameRate.filterStrength([value]) ⇒ <code>Number</code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;_`🔗 Chainable`_
 
 > Sets a filter on the frame rate calculation. Setting to 1 will effectively turn off the filter, the higher the> number the more smooth the curve over time. See this stackoverflow question for details:> https://stackoverflow.com/questions/4787431/check-fps-in-js
 
@@ -74,8 +71,7 @@
 
 <br><a name="FrameRate+sampleRate"></a>
 
-#### frameRate.sampleRate([value]) ⇒ <code>Number</code>
-`🔗 Chainable`
+#### frameRate.sampleRate([value]) ⇒ <code>Number</code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;_`🔗 Chainable`_
 
 > The rate to take samples. Setting to 0 will clear the interval. If the interval is prevented from executing at the desired rate, the history will get filled in with the current frame rate in an attempt to keep the history as accurate as possible.
 
@@ -88,8 +84,7 @@
 
 <br><a name="FrameRate+onSample"></a>
 
-#### frameRate.onSample([callback]) ⇒ <code>function</code>
-`🔗 Chainable`
+#### frameRate.onSample([callback]) ⇒ <code>function</code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;_`🔗 Chainable`_
 
 > The callback will get called for every sample taken.
 
@@ -101,8 +96,7 @@
 
 <br><a name="FrameRate+historyDuration"></a>
 
-#### frameRate.historyDuration([value]) ⇒ <code>Number</code>
-`🔗 Chainable`
+#### frameRate.historyDuration([value]) ⇒ <code>Number</code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;_`🔗 Chainable`_
 
 > Defines the duration of tracked history.
 
