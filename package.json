@@ -45,7 +45,7 @@
   "author": "Darren Paul Wright <Darren@DarrenPaulWright.com>",
   "license": "MIT",
   "devDependencies": {
-    "dmd-readable": "^0.4.0",
-    "jsdoc-to-markdown": "^5.0.0"
+    "dmd-readable": "^1.0.1",
+    "jsdoc-to-markdown": "^5.0.3"
   }
 }
