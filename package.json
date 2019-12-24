@@ -3,8 +3,9 @@
   "version": "1.0.12",
   "description": "An ES6 class for tracking framerate for a given period of time.",
   "main": "FrameRate.js",
+  "files": [],
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "",
     "patch": "npm version patch && npm publish",
     "minor": "npm version minor && npm publish",
     "major": "npm version major && npm publish",
@@ -13,35 +14,32 @@
     "deps": "ncu -u && npm install",
     "deps-commit": "npm run deps && git add --all && git diff --staged --quiet || git commit -m \"Updating dependencies\"",
     "deps-patch": "npm run deps-commit && npm run patch",
-    "docs": "jsdoc2md FrameRate.js > README.md -t docs.hbs --plugin dmd-readable"
+    "docs": "jsdoc2md FrameRate.js > README.md -t node_modules/dmd-readable/docs.hbs --plugin dmd-readable"
   },
-  "badges": [
-    {
-      "name": "npm",
-      "image": "https://img.shields.io/npm/v/framerate-history.svg",
-      "url": "https://npmjs.com/package/framerate-history"
+  "badges": {
+    "npm": {
+      "image": "https://img.shields.io/npm/v/{{name}}.svg",
+      "url": "https://npmjs.com/package/{{name}}"
     },
-    {
-      "name": "deps",
-      "image": "https://david-dm.org/darrenpaulwright/framerate-history.svg",
-      "url": "https://david-dm.org/darrenpaulwright/framerate-history"
+    "deps": {
+      "image": "https://david-dm.org/darrenpaulwright/{{name}}.svg",
+      "url": "https://david-dm.org/darrenpaulwright/{{name}}"
     },
-    {
-      "name": "size",
-      "image": "https://packagephobia.now.sh/badge?p=framerate-history",
-      "url": "https://packagephobia.now.sh/result?p=framerate-history"
+    "size": {
+      "base": "https://packagephobia.now.sh/",
+      "image": "badge?p={{name}}",
+      "url": "result?p={{name}}"
     },
-    {
-      "name": "vulnerabilities",
-      "image": "https://snyk.io/test/github/DarrenPaulWright/framerate-history/badge.svg?targetFile=package.json",
-      "url": "https://snyk.io/test/github/DarrenPaulWright/framerate-history?targetFile=package.json"
+    "vulnerabilities": {
+      "base": "https://snyk.io/test/github/DarrenPaulWright/{{name}}",
+      "image": "/badge.svg?targetFile=package.json",
+      "url": "?targetFile=package.json"
     },
-    {
-      "name": "license",
-      "image": "https://img.shields.io/github/license/DarrenPaulWright/framerate-history.svg",
-      "url": "https://npmjs.com/package/framerate-history/LICENSE.md"
+    "license": {
+      "image": "https://img.shields.io/github/license/DarrenPaulWright/{{name}}.svg",
+      "url": "https://npmjs.com/package/{{name}}/LICENSE.md"
     }
-  ],
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/DarrenPaulWright/framerate-history.git"
@@ -52,7 +50,7 @@
   "author": "Darren Paul Wright <Darren@DarrenPaulWright.com>",
   "license": "MIT",
   "devDependencies": {
-    "dmd-readable": "^1.0.1",
+    "dmd-readable": "^1.1.0",
     "jsdoc-to-markdown": "^5.0.3"
   }
 }
