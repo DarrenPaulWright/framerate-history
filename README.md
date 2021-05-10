@@ -12,12 +12,16 @@
 <br><a name="Installation"></a>
 
 ## Installation
-```npm install framerate-history```
+```
+npm install framerate-history
+```
 
 <br><a name="FrameRate"></a>
 
 ## FrameRate
-``` javascriptimport FrameRate from 'framerate-history';```
+``` javascript
+import FrameRate from 'framerate-history';
+```
 
 * [FrameRate](#FrameRate)
     * [new FrameRate(settings)](#new_FrameRate_new)
@@ -60,7 +64,9 @@
 
 ### frameRate.filterStrength([value]) ⇒ <code>Number</code>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;_`🔗 Chainable`_
 
-> Sets a filter on the frame rate calculation. Setting to 1 will effectively turn off the filter, the higher the> number the more smooth the curve over time. See this stackoverflow question for details:> https://stackoverflow.com/questions/4787431/check-fps-in-js
+> Sets a filter on the frame rate calculation. Setting to 1 will effectively turn off the filter, the higher the
+> number the more smooth the curve over time. See this stackoverflow question for details:
+> https://stackoverflow.com/questions/4787431/check-fps-in-js
 
 **Default**: <code>5</code>  
 
