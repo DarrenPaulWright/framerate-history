@@ -1,6 +1,6 @@
 {
 	"name": "framerate-history",
-	"version": "1.0.17",
+	"version": "1.0.18",
 	"description": "An ES6 class for tracking framerate for a given period of time.",
 	"main": "FrameRate.js",
 	"files": [],
