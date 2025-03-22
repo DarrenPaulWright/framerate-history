@@ -1,11 +1,5 @@
 const MILLISECONDS_IN_SECOND = 1000;
 
-const FILTER_STRENGTH = Symbol();
-const SAMPLE_RATE = Symbol();
-const HISTORY_DURATION = Symbol();
-const FPS = Symbol();
-const HISTORY = Symbol();
-const SAMPLE_INTERVAL = Symbol();
 const ON_SAMPLE = Symbol();
 
 /**
@@ -33,23 +27,28 @@ const ON_SAMPLE = Symbol();
  * @arg {Number} [settings.sampleRate=10]
  */
 export default class FrameRate {
+	#history = [];
+	#fps = 0;
+	#filterStrength = 5;
+	#historyDuration = 30;
+	#sampleRate = 10;
+	#sampleInterval = 0;
+	#onSample = null;
+
 	constructor(settings) {
-		const self = this;
 		let frameTime = 0;
 		let lastLoop = performance.now();
 
-		self[HISTORY] = [];
-
-		self.onSample(settings.onSample);
-		self.filterStrength(settings.filterStrength || 5);
-		self.historyDuration(settings.historyDuration || 30);
-		self.sampleRate(settings.sampleRate || 10);
+		this.onSample(settings.onSample);
+		this.filterStrength(settings.filterStrength || 5);
+		this.historyDuration(settings.historyDuration || 30);
+		this.sampleRate(settings.sampleRate || 10);
 
 		const refreshLoop = () => {
 			window.requestAnimationFrame((now) => {
-				frameTime += (now - lastLoop - frameTime) / self[FILTER_STRENGTH];
+				frameTime += (now - lastLoop - frameTime) / this.#filterStrength;
 				lastLoop = now;
-				self[FPS] = Math.round(MILLISECONDS_IN_SECOND / frameTime);
+				this.#fps = Math.round(MILLISECONDS_IN_SECOND / frameTime);
 				refreshLoop();
 			});
 		};
@@ -67,7 +66,7 @@ export default class FrameRate {
 	 * @returns {Number}
 	 */
 	get fps() {
-		return this[FPS];
+		return this.#fps;
 	}
 
 	/**
@@ -80,7 +79,7 @@ export default class FrameRate {
 	 * @returns {Array}
 	 */
 	get history() {
-		return this[HISTORY];
+		return this.#history;
 	}
 
 	/**
@@ -98,15 +97,13 @@ export default class FrameRate {
 	 * @returns {Number}
 	 */
 	filterStrength(value) {
-		const self = this;
+		if (typeof value === 'number') {
+			this.#filterStrength = value;
 
-		if (value !== undefined) {
-			self[FILTER_STRENGTH] = value;
-
-			return self;
+			return this;
 		}
 
-		return self[FILTER_STRENGTH];
+		return this.#filterStrength;
 	}
 
 	/**
@@ -122,38 +119,37 @@ export default class FrameRate {
 	 * @returns {Number}
 	 */
 	sampleRate(value) {
-		const self = this;
 		let lastSample;
 		let now;
 
-		if (value !== undefined) {
-			const DURATION =  MILLISECONDS_IN_SECOND / value;
-			self[SAMPLE_RATE] = value;
-			self.historyDuration(self.historyDuration());
+		if (typeof value === 'number') {
+			const DURATION = MILLISECONDS_IN_SECOND / value;
+			this.#sampleRate = value;
+			this.historyDuration(this.historyDuration());
 			lastSample = performance.now();
 
-			clearInterval(self[SAMPLE_INTERVAL]);
+			clearInterval(this.#sampleInterval);
 
-			if (self[SAMPLE_RATE] && self.historyDuration()) {
-				self[SAMPLE_INTERVAL] = setInterval(() => {
+			if (this.#sampleRate && this.historyDuration()) {
+				this.#sampleInterval = setInterval(() => {
 					now = performance.now();
 
 					while (lastSample + DURATION < now) {
-						self[HISTORY].push(self[FPS]);
-						self[HISTORY].shift();
+						this.#history.push(this.#fps);
+						this.#history.shift();
 						lastSample += DURATION;
 					}
 
-					if (self[ON_SAMPLE]) {
-						self[ON_SAMPLE](self[HISTORY]);
+					if (this.#onSample) {
+						this.#onSample(this.#history);
 					}
 				}, DURATION);
 			}
 
-			return self;
+			return this;
 		}
 
-		return self[SAMPLE_RATE];
+		return this.#sampleRate;
 	}
 
 	/**
@@ -168,15 +164,13 @@ export default class FrameRate {
 	 * @returns {Function}
 	 */
 	onSample(callback) {
-		const self = this;
+		if (typeof callback === 'function') {
+			this.#onSample = callback;
 
-		if (callback !== undefined) {
-			self[ON_SAMPLE] = callback;
-
-			return self;
+			return this;
 		}
 
-		return self[ON_SAMPLE];
+		return this.#onSample;
 	}
 
 	/**
@@ -192,22 +186,20 @@ export default class FrameRate {
 	 * @returns {Number}
 	 */
 	historyDuration(value) {
-		const self = this;
-
 		if (value !== undefined) {
-			self[HISTORY_DURATION] = value;
-			const totalHistory = self[SAMPLE_RATE] * self[HISTORY_DURATION];
+			this.#historyDuration = value;
+			const totalHistory = this.#sampleRate * this.#historyDuration;
 
-			while (self[HISTORY].length < totalHistory) {
-				self[HISTORY].unshift(0);
+			while (this.#history.length < totalHistory) {
+				this.#history.unshift(0);
 			}
-			while (self[HISTORY].length > totalHistory) {
-				self[HISTORY].shift();
+			while (this.#history.length > totalHistory) {
+				this.#history.shift();
 			}
 
-			return self;
+			return this;
 		}
 
-		return self[HISTORY_DURATION];
+		return this.#historyDuration;
 	}
 }
