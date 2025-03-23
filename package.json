@@ -4,7 +4,9 @@
 	"description": "An ES6 class for tracking framerate for a given period of time.",
 	"main": "FrameRate.js",
 	"types": "FrameRate.d.ts",
-	"files": [],
+	"files": [
+		"/FrameRate.d.ts"
+	],
 	"scripts": {
 		"test": "",
 		"preversion": "npm test && npm run docs && git add --all && git diff --staged --quiet || git commit -m \"Updating docs\"",
